@@ -1,5 +1,5 @@
 # Script de Connexion Exchange Online
-# 🔐 Script PowerShell pour se connecter à Exchange Online via le Partner Center Microsoft 365.
+# 🔐 Script PowerShell pour se connecter à Exchange Online via le Partner Center Microsoft 365 (multi-tenant).
 
 Ce script PowerShell permet de se connecter facilement à Exchange Online en tant qu'administrateur délégué via le Centre Partenaire Microsoft 365. Il a été conçu pour simplifier la gestion des clients et l'exécution de commandes Exchange dans un environnement multi-tenant.
 
