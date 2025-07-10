@@ -1,6 +1,6 @@
 ﻿# =============================
 # Script de connexion Exchange Online
-# Auteur : Techparty06 ✨
+# Auteur : @Techparty06 ✨
 # =============================
 
 [Console]::OutputEncoding = [System.Text.Encoding]::GetEncoding(65001)
