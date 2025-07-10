@@ -22,7 +22,7 @@ Ce script PowerShell permet de se connecter facilement à Exchange Online en tan
 
 1. Cloner le dépôt (ou télécharger le zip):
    ```bash
-   git clone https://github.com/votre-utilisateur/exchange-online-connexion-script.git
+   git clone https://github.com/TechParty06/exchange-online-connexion-script.git
    ```
 2. Personnaliser la variable au début du script $defaultUsername :
    Utiliser de préférence Notepad++ pour modifier le fichier (Encodage UTF-8-BOM)
