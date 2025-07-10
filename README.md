@@ -24,3 +24,11 @@ Ce script PowerShell permet de se connecter facilement à Exchange Online en tan
    ```bash
    git clone https://github.com/votre-utilisateur/exchange-online-connexion-script.git
    ```
+2. Personnaliser la variable $defaultUsername au début du script :
+   ```bash
+   $defaultUsername = 'agent365@mondomaine.fr' # À personnaliser
+   ```
+3. Lancer le script :
+   ```bash
+   .\Connection_Exchange_Online.ps1
+   ```
