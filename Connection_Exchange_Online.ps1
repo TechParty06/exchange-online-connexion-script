@@ -98,7 +98,7 @@ while ($true) {
         'q' {
             Write-Host "`n👋 Merci d'avoir utilisé ce script. À bientôt !" -ForegroundColor Cyan
             Write-Log "Script terminé par l'utilisateur"
-            break
+            Exit
         }
         'a' {
             $clientObj = Get-ClientList
