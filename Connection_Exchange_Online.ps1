@@ -20,7 +20,7 @@ function Write-Log {
 # Configuration : UPN administrateur délégué
 # ─────────────────────────────────────────────────────────────
 $defaultUsername = 'agent365@mondomaine.fr' # À personnaliser
-$UsernameInput = Read-Host -Prompt "Entrez l'UPN de l'administrateur délégué ou appuyez sur Entrée pour utiliser le compte par défaut : $defaultUsername"
+$UsernameInput = Read-Host -Prompt "Entrez l'UPN de l'administrateur délégué ou appuyez sur Entrée pour utiliser le compte par défaut ($defaultUsername)"
 $Username = if ([string]::IsNullOrWhiteSpace($UsernameInput)) { $defaultUsername } else { $UsernameInput }
 
 # ─────────────────────────────────────────────────────────────
