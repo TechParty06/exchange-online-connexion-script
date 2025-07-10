@@ -1,10 +1,10 @@
-﻿# =============================
+# =============================
 # Script de connexion Exchange Online
 # Auteur : @Techparty06 ✨
 # =============================
 
-[Console]::OutputEncoding = [System.Text.Encoding]::GetEncoding(65001)
-chcp 65001 > $null
+$defaultUsername = 'agent365@mondomaine.fr' # À personnaliser
+
 Clear-Host
 
 function Write-Log {
@@ -19,7 +19,6 @@ function Write-Log {
 # ─────────────────────────────────────────────────────────────
 # Configuration : UPN administrateur délégué
 # ─────────────────────────────────────────────────────────────
-$defaultUsername = 'agent365@mondomaine.fr' # À personnaliser
 $UsernameInput = Read-Host -Prompt "Entrez l'UPN de l'administrateur délégué ou appuyez sur Entrée pour utiliser le compte par défaut ($defaultUsername)"
 $Username = if ([string]::IsNullOrWhiteSpace($UsernameInput)) { $defaultUsername } else { $UsernameInput }
 
@@ -98,7 +97,7 @@ while ($true) {
         'q' {
             Write-Host "`n👋 Merci d'avoir utilisé ce script. À bientôt !" -ForegroundColor Cyan
             Write-Log "Script terminé par l'utilisateur"
-            Exit
+            exit
         }
         'a' {
             $clientObj = Get-ClientList
@@ -122,20 +121,21 @@ while ($true) {
 try {
     Connect-ExchangeOnline -UserPrincipalName '$Username' -DelegatedOrganization '$DomainNameId' ;
     if (`$?) {
-        Write-Host "✅ Connecté à $windowTitle" -ForegroundColor Green ;
-        Write-Host " " ;
-        Write-Host "🔎 Ci-dessous les boîtes aux lettres trouvées :" -ForegroundColor White ;
-        Write-Host " " ;
+        Write-Host '✅ Connecté à $windowTitle' -ForegroundColor Green ;
+        Write-Host ' ' ;
+        Write-Host '🔎 Ci-dessous les boîtes aux lettres trouvées :' -ForegroundColor White ;
+        Write-Host ' ' ;
         Get-Mailbox -ResultSize Unlimited | Format-Table DisplayName,PrimarySmtpAddress ;
-        Write-Host "✨ Tapez votre commande Exchange Online souhaitée " ;
-        Write-Host " " ;
+        Write-Host '✨ Tapez votre commande Exchange Online souhaitée' ;
+        Write-Host ' ' ;
     } else {
         Write-Host '❌ La connexion a échoué pour $DomainNameId' -ForegroundColor Red ;
     }
 } catch {
-    Write-Host \"❌ Erreur lors de la connexion ou de l'exécution : `$($_.Exception.Message)\" -ForegroundColor Red ;
+    Write-Host ('❌ Erreur lors de la connexion ou de l''exécution : ' + `$_.Exception.Message) -ForegroundColor Red ;
 }
 "@
+
 
                     Start-Process powershell.exe -ArgumentList "-NoExit", "-Command", $escapedCommand
                 } else {
