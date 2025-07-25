@@ -1,10 +1,10 @@
-# =============================
-# Powershell Exchange Online 
-# Connexion  365 MultiTenant
-#            ..::: Fab :::..
-# =============================
+# =====================================
+# Powershell Connexion Exchange Online 
+# Connexion                 MS365
+# MultiTenant          ..::: Fab :::..
+# =====================================
 
-$defaultUsername = 'agent365@mondomaine.fr' # A PERSONNALISER
+$defaultUsername = 'agent365@mondomaine.fr' 			# A PERSONNALISER
 
 # Encodage utilisé.
 #chcp 65001
@@ -172,7 +172,7 @@ while ($true) {
 `$Host.UI.RawUI.WindowTitle = '$windowTitle' ;
 
 # Vide le contenu de la fenêtre Powershell
-`Clear-Host ;
+Clear-Host ;
 
 try {
     Connect-ExchangeOnline -UserPrincipalName '$Username' -DelegatedOrganization '$DomainNameId' ;
